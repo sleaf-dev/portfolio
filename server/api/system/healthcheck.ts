@@ -1,5 +1,4 @@
-import pkg from '~/package.json';
-import { connectDB, isConnected } from '../database/MongoDB';
+import { connectDB, isConnected } from '../../database/MongoDB';
 
 const startTime = new Date();
 
@@ -12,10 +11,6 @@ export default defineEventHandler(async () => {
     uptime: process.uptime(),
     upSince: startTime,
     localTime: new Date(),
-    service: {
-      name: pkg.name,
-      version: pkg.version,
-    },
     database: {
       mongodb: isConnected,
     },

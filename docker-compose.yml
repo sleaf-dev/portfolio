@@ -10,3 +10,4 @@ services:
       - CRYPTOCLOUD_SHOP_ID=${CRYPTOCLOUD_SHOP_ID}
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_URL=${DATABASE_URL}
+      - NODE_ENV=production
