@@ -1,0 +1,268 @@
+@use "screens" as *;
+
+html {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.8rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.7rem;
+  }
+}
+
+h2 {
+  font-size: 2.1rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.7rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.6rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.6rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.5rem;
+  }
+}
+
+h4 {
+  font-size: 1.9rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.4rem;
+  }
+}
+
+h5 {
+  font-size: 1.8rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.4rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.3rem;
+  }
+}
+
+h6 {
+  font-size: 1.4rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1.3rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 1.2rem;
+  }
+}
+
+p, q {
+  font-size: 1rem;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width: $screen-xs) {
+    font-size: 0.9rem;
+  }
+  @media screen and (max-width: $screen-xss) {
+    font-size: 0.8rem;
+  }
+}
+
+label {
+  font-size: 1rem;
+  color: #6a6f7e !important;
+  margin: 0;
+  @media screen and (max-width: $screen-sm) {
+    font-size: 0.8rem;
+  }
+}
+
+.light html {
+  background-color: #eaeaea3b;
+  color: #2C2044;
+}
+
+.dark html {
+  background-color: #120e1c;
+  color: #ffffff;
+}
+
+.dark body {
+  background-color: #120e1c;
+  color: #ffffff;
+}
+
+select, input {
+  font-family: "Fusion Pixel 10px Proportional KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fusion Pixel 10px Proportional KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 2;
+  background-color: #eaeaea3b;
+  color: #2C2044;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $screen-md) {
+      flex-direction: column-reverse;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+}
+
+.dark body {
+  background-color: #120e1c;
+  color: #ffffff;
+}
+
+
+.desktop {
+  display: flex;
+  @media screen and (max-width: $screen-md) {
+    display: none;
+  }
+}
+
+.desktop-md {
+  display: flex;
+  @media screen and (max-width: $screen-sm) {
+    display: none;
+  }
+}
+
+.screen-md {
+  display: none;
+  @media screen and (max-width: $screen-md) {
+    display: flex;
+  }
+}
+
+.screen-sm {
+  display: none;
+  @media screen and (max-width: $screen-sm) {
+    display: flex;
+  }
+}
+
+.screen-xs {
+  display: none;
+  @media screen and (max-width: $screen-xs) {
+    display: flex;
+  }
+}
+
+.screen-xss {
+  display: none;
+  @media screen and (max-width: $screen-xss) {
+    display: flex;
+  }
+}
+
+.data-marquee-icon {
+  height: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+}
+
+.icon_padding_right {
+  padding-right: 0.5rem;
+}
+
+.blur__glass {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(44, 32, 68, 0.2);
+  background: rgba(44, 32, 68, 0.05);
+}
+
+.dark .blur__glass {
+  border: 1px solid rgba(210, 210, 210, 0.2);
+  background: rgba(143, 143, 143, 0.1);
+}
+
+.transparent__glass {
+  filter: none !important;
+  -webkit-filter: none !important;
+  border-radius: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(44, 32, 68, 0.2);
+  background: rgba(44, 32, 68, 0.05);
+}
+
+.dark .transparent__glass {
+  border: 1px solid rgba(210, 210, 210, 0.2);
+  background: rgba(143, 143, 143, 0.1);
+}
+
+
+.light ::selection {
+  background: #FCF58D;
+  color: #FFFFFF;
+}
+
+.dark ::selection {
+  background: #FCF58D;
+  color: #2C2044;
+}
+
+.light ::-moz-selection {
+  background: #FCF58D;
+  color: #FFFFFF;
+}
+
+.dark ::-moz-selection {
+  background: #FCF58D;
+  color: #2C2044;
+}
+
+.loading-indicator {
+  font-size: 10rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

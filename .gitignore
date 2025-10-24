@@ -9,14 +9,17 @@ dist
 # Node dependencies
 node_modules
 
+# Editors
+.idea
+.vscode
+.fleet
+
 # Logs
 logs
 *.log
 
 # Misc
 .DS_Store
-.fleet
-.idea
 
 # Local env files
 .env

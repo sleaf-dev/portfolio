@@ -1,0 +1,17 @@
+export default {
+    nav_home: 'pixelarticons:home',
+    nav_projects: 'pixelarticons:shopping-bag',
+    nav_donate: 'pixelarticons:heart',
+    nav_theme_system: 'pixelarticons:monitor',
+    nav_theme_dark: 'pixelarticons:moon-star',
+    nav_theme_light: 'pixelarticons:sun-alt',
+    nav_lang: 'pixel:globe-americas',
+    email: 'pixel:envelope-solid',
+    discord: 'pixel:discord',
+    read_more: 'pixelarticons:eye',
+    download: 'pixelarticons:cloud-download',
+    donate: 'pixel:credit-card-solid',
+    donate_success: 'pixelarticons:heart',
+    donate_pay: 'pixelarticons:dollar',
+    back_home: 'pixelarticons:arrow-left',
+}
