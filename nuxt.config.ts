@@ -26,6 +26,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://s3.sleaf.dev/portfolio/sleaf-icon-short.png' }],
     },
   },
+  ssr: false,
   routeRules: {
     '/**': {
       prerender: true,
