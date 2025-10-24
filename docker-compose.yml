@@ -1,10 +1,10 @@
 services:
-  front:
+  portfolio:
     build: .
     container_name: portfolio
     image: portfolio:latest
     restart: always
-    network_mode: 'host'
+    network_mode: "host"
     environment:
       - CRYPTOCLOUD_API_KEY=${CRYPTOCLOUD_API_KEY}
       - CRYPTOCLOUD_SHOP_ID=${CRYPTOCLOUD_SHOP_ID}
