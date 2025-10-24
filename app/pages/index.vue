@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import axios from 'axios';
-import Calendar from '~/components/gitlab/Calendar.vue';
 import Separator from '~/components/utilities/Separator.vue';
 import ProjectCard from '~/components/projects/ProjectCard.vue';
 
@@ -78,13 +77,6 @@ const projectRows = computed(() => {
               <ProjectCard :project="item.project" :isSmall="item.width === '30%'" />
             </div>
           </div>
-        </div>
-      </div>
-      <Separator />
-      <div class="calendar">
-        <h1>{{ t('hero_calendar') }}</h1>
-        <div class="calendar__container">
-          <Calendar class="calendar__container__component" />
         </div>
       </div>
     </div>
