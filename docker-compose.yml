@@ -1,0 +1,11 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    image: portfolio:latest
+    restart: always
+    network_mode: "host"
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_URL=${DATABASE_URL}
+      - NODE_ENV=production

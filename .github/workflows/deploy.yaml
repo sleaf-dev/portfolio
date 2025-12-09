@@ -1,0 +1,139 @@
+name: Nuxt Build and Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "app/**"
+      - "i18n/**"
+      - "public/**"
+      - "server/**"
+
+jobs:
+  dependencies:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
+          path: node_modules
+          restore-keys: node_modules-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "25"
+
+      - name: Install dependencies
+        run: |
+          npm install -g pnpm
+          npm install -g nuxi
+          pnpm i
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
+          path: node_modules
+
+  prepare:
+    runs-on: [ubuntu-latest]
+    needs: dependencies
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
+          path: node_modules
+          restore-keys: node_modules-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "25"
+
+      - name: Prepare for build
+        run: |
+          npm install -g pnpm
+          npm install -g nuxi
+          pnpm run postinstall
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prepare-artifacts
+          path: .nuxt/
+          include-hidden-files: true
+          retention-days: 1
+
+  build:
+    runs-on: [ubuntu-latest]
+    needs: prepare
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
+          path: node_modules
+          restore-keys: node_modules-
+
+      - name: Download prepare artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: prepare-artifacts
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "25"
+
+      - name: Building
+        run: |
+          echo "Building..."
+          npm install -g pnpm
+          npm install -g nuxi
+          pnpm run build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            .nuxt/
+            .output/
+            i18n/
+          include-hidden-files: true
+          retention-days: 1
+
+  deploy:
+    runs-on: [res-5]
+    needs: build
+    env:
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DOCKER_BUILDKIT: 0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Deploying
+        run: |
+          echo "Deploying..."
+          docker compose up --detach --build

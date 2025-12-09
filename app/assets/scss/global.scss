@@ -1,0 +1,141 @@
+@use 'screens' as *;
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  @media screen and (max-width: $screen-md) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  @media screen and (max-width: $screen-md) {
+    font-size: 1.5rem;
+  }
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  color: #ffffff;
+  margin: 0;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 1.3rem;
+  }
+}
+
+h5 {
+  font-size: 1.3rem;
+  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  color: #ffffff;
+  margin: 0;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 1.2rem;
+  }
+}
+
+h6 {
+  font-size: 1.2rem;
+  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  color: #ffffff;
+  margin: 0;
+  @media screen and (max-width: $screen-md) {
+    font-size: 1.1rem;
+  }
+}
+
+p,
+q,
+select,
+input {
+  font-size: 1.125rem;
+  font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
+  font-variation-settings: 'wght' 470, 'ital' 0;
+  margin: 0;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 1rem;
+  }
+}
+
+label {
+  font-size: 1rem;
+  color: #6a6f7e !important;
+  margin: 0;
+}
+
+select,
+input {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(107, 80, 255);
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $screen-md) {
+      flex-direction: column-reverse;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+}
+
+.glass {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 3px solid rgba(44, 32, 68, 0.073);
+  border-radius: 2rem;
+}
