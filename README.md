@@ -1,6 +1,6 @@
 <center>
 
-![Icon](https://github.com/SolsticeLeaf/portfolio/blob/master/.github/images/home.png?raw=true)
+![Icon](/.github/images/home.png)
 
 </center>
 
