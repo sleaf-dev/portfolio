@@ -10,11 +10,11 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       script: [
-        // {
-        //   src: 'https://metrics.sleaf.dev/api/script.js',
-        //   'data-site-id': '1',
-        //   defer: true,
-        // },
+        {
+          src: 'https://metrics.sleaf.dev/api/script.js',
+          'data-site-id': '4',
+          defer: true,
+        },
       ],
       meta: [{ charset: 'utf-8' }, { name: 'description', content: '' }, { name: 'format-detection', content: 'telephone=no' }],
       link: [
