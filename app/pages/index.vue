@@ -140,7 +140,9 @@ onBeforeMount(async () => {
       &__text {
         font-size: 1.4rem;
         font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
-        font-variation-settings: 'wght' 470, 'ital' 0;
+        font-variation-settings:
+          'wght' 470,
+          'ital' 0;
         margin: 0;
         color: #e1e1e1;
       }
