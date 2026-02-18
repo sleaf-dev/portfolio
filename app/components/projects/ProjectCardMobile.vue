@@ -48,7 +48,9 @@ function getDescription(description: any): string {
   border-radius: 2rem;
 }
 :hover {
-  box-shadow: 0 0 20px rgb(183, 0, 255), 0 0 40px rgb(200, 0, 255);
+  box-shadow:
+    0 0 20px rgb(183, 0, 255),
+    0 0 40px rgb(200, 0, 255);
   transition: box-shadow 0.3s ease;
 }
 
@@ -105,9 +107,11 @@ function getDescription(description: any): string {
     text-align: center;
     font-size: 1.4rem;
     font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
-    font-variation-settings: 'wght' 470, 'ital' 0;
+    font-variation-settings:
+      'wght' 470,
+      'ital' 0;
     text-wrap: balance;
-    color: #d1d1d1;
+    color: #e3e3e3;
   }
 }
 </style>

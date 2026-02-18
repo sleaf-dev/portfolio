@@ -144,12 +144,12 @@ onBeforeMount(async () => {
           'wght' 470,
           'ital' 0;
         margin: 0;
-        color: #e1e1e1;
+        color: #ededed;
       }
 
       &__icon {
         font-size: 1.7rem;
-        color: #e1e1e1;
+        color: #ededed;
       }
       :hover {
         color: #9d2dbb;
