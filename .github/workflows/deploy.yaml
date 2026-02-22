@@ -39,7 +39,6 @@ jobs:
           npm install -g pnpm
           npm install -g nuxi
           pnpm i --dangerously-allow-all-builds
-          pnpm run postinstall
 
       - name: Prepare for build
         run: |
