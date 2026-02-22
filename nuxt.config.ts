@@ -73,7 +73,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'none',
+    provider: 'ipx',
+    ipx: {
+      baseURL: '/_ipx',
+    },
+    domains: ['s3.sleaf.dev', 'sleaf.dev', 'localhost'],
   },
 
   routeRules: {

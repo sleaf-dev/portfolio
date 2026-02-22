@@ -19,6 +19,7 @@ const description = props.project.description[locale.value] || props.project.des
 
 <template>
   <div class="card">
+    <h4>{{ imageUrl }}</h4>
     <div class="image">
       <NuxtImg class="image__img" fit="crop" height="22rem" width="1600" :src="imageUrl" loading="lazy" decoding="async" />
     </div>
