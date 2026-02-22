@@ -11,10 +11,10 @@ const handleScroll = async () => {
       let scrollY = window.scrollY;
       let u = 2.65;
       let i = 0.03;
-      scrollY < 0 && ((u = 1), (i = 0)),
+      (scrollY < 0 && ((u = 1), (i = 0)),
         (video.style.transform = `translateY(${((scrollY <= 0 ? 0 : scrollY) / u) * -1}px)`),
         (overlap.style.transform = `translateY(${((scrollY <= 0 ? 0 : scrollY) / u) * -1}px)`),
-        (background.style.filter = `blur(${Math.min(100, scrollY * i)}px)`);
+        (background.style.filter = `blur(${Math.min(100, scrollY * i)}px)`));
       ticking = false;
     });
     ticking = true;
@@ -32,9 +32,10 @@ onUnmounted(() => {
 
 <template>
   <div class="background">
-    <video class="background__video" autoplay loop muted playsinline>
-      <source src="@@/public/background.webm" type="video/webm" />
-      <source src="@@/public/background.mp4" type="video/mp4" />
+    <NuxtImg src="/background.webp" class="background__photo" loading="lazy" decoding="async" />
+    <video class="background__video" preload="auto" autoplay loop muted playsinline>
+      <source src="/background.webm" type="video/webm" />
+      <source src="/background.mp4" type="video/mp4" />
     </video>
     <div class="overlap" />
   </div>
@@ -50,11 +51,17 @@ onUnmounted(() => {
   top: -4rem;
   left: 0;
 
-  @media screen and (max-width: $screen-sm) {
+  @media screen and (max-width: $screen-phone) {
     top: 0rem;
     left: -30rem;
     width: 400%;
   }
+}
+
+.background__photo {
+  position: fixed;
+  z-index: -3;
+  width: 100%;
 }
 
 .background__video {
@@ -71,7 +78,7 @@ onUnmounted(() => {
   z-index: 0;
   top: 70vh;
 
-  @media screen and (max-width: $screen-sm) {
+  @media screen and (max-width: $screen-phone) {
     top: 80vh;
   }
 }

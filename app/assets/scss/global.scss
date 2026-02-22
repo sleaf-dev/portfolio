@@ -1,77 +1,86 @@
 @use 'screens' as *;
 
 h1 {
-  font-size: 4rem;
-  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-variation-settings:
+    'ital' 0,
+    'wght' 790;
   font-weight: 400;
   color: #ffffff;
   margin: 0;
 
-  @media screen and (max-width: $screen-md) {
-    font-size: 3.5rem;
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 3rem;
   }
 }
 
 h2 {
-  font-size: 3rem;
-  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-variation-settings:
+    'ital' 0,
+    'wght' 790;
   font-weight: 400;
   color: #ffffff;
   margin: 0;
-  @media screen and (max-width: $screen-md) {
-    font-size: 2.5rem;
+
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 2rem;
   }
 }
 
 h3 {
   font-size: 2rem;
-  font-family: 'Mori-SemiBold', Helvetica, Arial, sans-serif;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-variation-settings: 'ital' 0, 'wght' 790;
+  font-variation-settings:
+    'ital' 0,
+    'wght' 790;
   font-weight: 400;
   color: #ffffff;
   margin: 0;
-  @media screen and (max-width: $screen-md) {
-    font-size: 1.5rem;
+
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1.6rem;
   }
 }
 
 h4 {
-  font-size: 1.4rem;
-  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
   color: #ffffff;
   margin: 0;
 
-  @media screen and (max-width: $screen-md) {
-    font-size: 1.3rem;
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1.5rem;
   }
 }
 
 h5 {
-  font-size: 1.3rem;
-  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
   color: #ffffff;
   margin: 0;
 
-  @media screen and (max-width: $screen-md) {
-    font-size: 1.2rem;
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1.4rem;
   }
 }
 
 h6 {
-  font-size: 1.2rem;
-  font-family: 'Mori-Regular', Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-family: 'Arimo', Helvetica, Arial, sans-serif;
   font-style: normal;
   color: #ffffff;
   margin: 0;
-  @media screen and (max-width: $screen-md) {
-    font-size: 1.1rem;
+
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1.3rem;
   }
 }
 
@@ -79,20 +88,28 @@ p,
 q,
 select,
 input {
-  font-size: 1.125rem;
-  font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
-  font-variation-settings: 'wght' 470, 'ital' 0;
+  font-size: 1.4rem;
+  font-family: 'Arimo', 'Helvetica', 'Arial', sans-serif;
+  color: #ffffff;
+  font-variation-settings:
+    'wght' 470,
+    'ital' 0;
   margin: 0;
 
-  @media screen and (max-width: $screen-md) {
-    font-size: 1rem;
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1.25rem;
   }
 }
 
 label {
-  font-size: 1rem;
-  color: #6a6f7e !important;
+  font-size: 1.2rem;
+  font-family: 'Arimo', 'Helvetica', 'Arial', sans-serif;
+  color: #ffffff !important;
   margin: 0;
+
+  @media screen and (max-width: $screen-desktop) {
+    font-size: 1rem;
+  }
 }
 
 select,
@@ -113,7 +130,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-optical-sizing: auto;
-  font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -123,7 +139,7 @@ body {
     display: flex;
     flex-direction: row;
 
-    @media screen and (max-width: $screen-md) {
+    @media screen and (max-width: $screen-tablet) {
       flex-direction: column-reverse;
       box-sizing: border-box;
       text-align: center;

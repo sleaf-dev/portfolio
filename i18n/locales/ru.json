@@ -1,13 +1,29 @@
 {
-  "home_button": "Вернуться на главную",
-  "nav_home": "Главная",
-  "nav_projects": "Проекты",
-  "RU": "Русский",
-  "EN": "English",
-  "welcome": "Добро пожаловать",
-  "hero_title": "Меня зовут SolsticeLeaf",
-  "hero_text": "Я на одной волне с технологиями.",
-  "hero_follow": "Следить за мной",
-  "discord": "Discord",
-  "hero_mail": "Написать мне"
+  "nav": {
+    "home": "Главная",
+    "projects": "Проекты",
+    "work": "Места работы"
+  },
+  "pages": {
+    "home": "Главная",
+    "projects": "Проекты",
+    "work": "Места работы"
+  },
+  "buttons": {
+    "search": "Поиск",
+    "login_through": "Войти через",
+    "exit": "Выйти"
+  },
+  "user_menu": {
+    "user": "Пользователь",
+    "email": "Почта"
+  },
+  "hero": {
+    "welcome": "Добро пожаловать",
+    "title": "Меня зовут - SolsticeLeaf",
+    "text": "Я на одной волне с технологиями.",
+    "follow": "Социальные сети",
+    "discord": "Discord",
+    "mail": "Написать мне"
+  }
 }

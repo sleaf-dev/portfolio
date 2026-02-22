@@ -1,14 +1,12 @@
 // Small devices
-$screen-xss: 420px;
+$screen-small: 420px;
 // Mobile breakpoint
-$screen-xs: 576px;
-// Tablet breakpoint
-$screen-sm: 768px;
+$screen-phone: 950px;
 // Laptop breakpoint
-$screen-md: 1280px;
+$screen-tablet: 1280px;
+// Laptop Horizontal breakpoint
+$screen-tablet-horizontal: 1400px;
 // Macbook breakpoint
-$screen-lg: 1820px;
+$screen-macbook: 1820px;
 // Desktop breakpoint
-$screen-xl: 2880px;
-// Large desktop breakpoint
-$screen-xxl: 3072px;
+$screen-desktop: 2440px;

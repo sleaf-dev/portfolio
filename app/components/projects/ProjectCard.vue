@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const config = useAppConfig();
+const runtimeConfig = useRuntimeConfig();
 const { t, locale } = useI18n();
 
 const props = defineProps({
@@ -7,32 +8,24 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  isSmall: {
-    type: Boolean,
-    defailt: false,
+  width: {
+    type: String,
+    default: '50%',
   },
 });
 
-console.log(props.project.image);
-
-function getDescription(description: any): string {
-  const currentLocale = locale.value;
-  const localed = description[currentLocale];
-  if (localed) {
-    return localed;
-  }
-  return description['en'];
-}
+const imageUrl = `${runtimeConfig.public.S3_URL}/${runtimeConfig.public.S3_BUCKET}/projects/images/${props.project.image}`;
+const description = props.project.description[locale.value] || props.project.description['ru'];
 </script>
 
 <template>
   <div class="card">
     <div class="image">
-      <NuxtImg class="image__img" fit="crop" height="22rem" width="1600" :src="project.image" loading="lazy" decoding="async" placeholder />
+      <NuxtImg class="image__img" fit="crop" height="22rem" width="1600" :src="imageUrl" loading="lazy" decoding="async" />
     </div>
-    <div :class="`info ${isSmall ? 'info__small' : 'info__big'}`">
+    <div :class="`info ${width === '30%' ? 'info__small' : 'info__big'}`">
       <h4>{{ project.name }}</h4>
-      <p class="info__description">{{ getDescription(project.description) }}</p>
+      <p class="info__description">{{ description }}</p>
     </div>
     <NuxtLink :to="project.url" class="active"></NuxtLink>
   </div>
@@ -45,15 +38,10 @@ function getDescription(description: any): string {
   height: fit-content;
   display: flex;
   height: 22rem;
-  max-width: 100rem;
   flex-direction: row;
   overflow: hidden;
   position: relative;
   border-radius: 2rem;
-}
-:hover {
-  box-shadow: 0 0 20px rgb(183, 0, 255), 0 0 40px rgb(200, 0, 255);
-  transition: box-shadow 0.3s ease;
 }
 
 .image {
@@ -99,8 +87,10 @@ function getDescription(description: any): string {
     text-align: center;
     font-size: 1.4rem;
     font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
-    font-variation-settings: 'wght' 470, 'ital' 0;
-    color: #d1d1d1;
+    font-variation-settings:
+      'wght' 470,
+      'ital' 0;
+    color: #e3e3e3;
   }
 
   &__big {
@@ -116,7 +106,7 @@ function getDescription(description: any): string {
   }
 
   &__small {
-    width: 100%;
+    width: 92%;
     height: 7rem;
     bottom: 0;
     filter: none !important;

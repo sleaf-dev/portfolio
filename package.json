@@ -1,8 +1,7 @@
 {
   "name": "portfolio",
-  "version": "4.0.0",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev --host",
@@ -12,26 +11,24 @@
     "deploy": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.11.4",
-    "@nuxt/icon": "^2.1.0",
-    "@nuxt/image": "^1.11.0",
-    "@nuxt/kit": "^4.1.2",
-    "@nuxtjs/device": "^3.2.4",
-    "@nuxtjs/i18n": "^10.1.0",
-    "@nuxtjs/robots": "5.4.0",
-    "@nuxtjs/sitemap": "7.4.3",
-    "axios": "^1.12.2",
-    "mongoose": "^8.18.2",
-    "nuxt": "^4.1.2",
-    "vite-svg-loader": "^5.1.0",
-    "vue": "^3.5.22",
-    "vue-router": "^4.5.1",
-    "vue3-marquee": "^4.2.2"
+    "@auth/mongodb-adapter": "^3.11.1",
+    "@iconify-json/mingcute": "^1.2.7",
+    "@nuxt/fonts": "0.14.0",
+    "@nuxt/icon": "2.2.1",
+    "@nuxt/image": "2.0.0",
+    "@nuxtjs/i18n": "10.2.3",
+    "@sidebase/nuxt-auth": "1.2.0",
+    "@vueuse/core": "^14.2.1",
+    "minio": "^8.0.6",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.2.1",
+    "next-auth": "4.21.1",
+    "nuxt": "^4.3.1",
+    "vue": "^3.5.28",
+    "vue-router": "^5.0.3"
   },
-  "packageManager": "pnpm@10.14.0",
   "devDependencies": {
-    "@iconify-json/mingcute": "^1.2.5",
-    "@types/node": "^24.9.1",
-    "sass-embedded": "^1.93.2"
+    "@types/node": "^25.3.0",
+    "sass-embedded": "^1.97.3"
   }
 }

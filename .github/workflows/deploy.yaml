@@ -10,6 +10,10 @@ on:
       - "i18n/**"
       - "public/**"
       - "server/**"
+      - "nuxt.config.ts"
+      - "Dockerfile"
+      - "docker-compose.yml"
+      - ".github/workflows/**"
 
 jobs:
   dependencies:
@@ -121,8 +125,18 @@ jobs:
     runs-on: [self-hosted]
     needs: build
     env:
-      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      S3_URL: ${{ secrets.S3_URL }}
+      OAUTH_ID: ${{ secrets.OAUTH_ID }}
+      OAUTH_SECRET: ${{ secrets.OAUTH_SECRET }}
+      AUTH_ORIGIN: ${{ secrets.AUTH_ORIGIN }}
+      AUTH_TRUST_HOST: ${{ secrets.AUTH_TRUST_HOST }}
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
+      MONGODB_NAME: ${{ secrets.MONGODB_NAME }}
+      NUXT_SECRET: ${{ secrets.NUXT_SECRET }}
+      S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+      S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+      PORT: ${{ secrets.PORT }}
       DOCKER_BUILDKIT: 0
     steps:
       - name: Checkout code

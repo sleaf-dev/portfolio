@@ -1,76 +1,48 @@
 <script setup lang="ts">
-import axios from 'axios';
-import FlexButton from '~/components/buttons/FlexButton.vue';
-import TyperUtil from '~/components/utilities/TyperUtil.vue';
+import Button from '~/components/buttons/Button.vue';
+import TyperUtil from '~/utils/TyperUtil.vue';
 
-const { t } = useI18n();
 const config = useAppConfig();
+const { t } = useI18n();
 
-const projects = ref<any[]>([]);
-const status = ref(false);
-
-onBeforeMount(async () => {
-  await axios
-    .post('/api/projects/getProjects', {
-      amount: 4,
-    })
-    .then((response) => {
-      projects.value = response.data.projects || [];
-    })
-    .catch((error) => {
-      console.log(error);
-      projects.value = [];
-    })
-    .finally(() => {
-      status.value = true;
-    });
+useHead({
+  title: `${t('pages.home')} - sleaf.dev`,
 });
 </script>
 
 <template>
   <div class="wrapper">
-    <div class="hero">
-      <div class="hero__left glass">
-        <h1>{{ config.data.nickname }}</h1>
-        <TyperUtil :words="config.typer" />
-        <h4>{{ t('hero_text') }}</h4>
-        <div class="hero__left__links">
-          <p class="hero__left__links__text">{{ t('hero_follow') }}:</p>
-          <a v-for="link in config.socialLinks" :key="link.icon" :href="link.url">
-            <Icon :name="link.icon" class="hero__left__links__icon" />
-          </a>
-        </div>
-        <div class="hero__left__buttons">
-          <FlexButton
-            :text="t('hero_mail')"
-            :text-bold="true"
-            text-color="#ffffff"
-            :icon="config.icons.email"
-            color="#b90091"
-            :link="config.data.mailLink"
-            class="main__content__button__btn"
-            :outline="false" />
-          <FlexButton
-            :text="t('discord')"
-            :text-bold="false"
-            text-color="#e9e9e9"
-            :icon="config.icons.discord"
-            color="#b90091"
-            :link="config.data.discordLink"
-            class="main__content__button__btn"
-            :outline="true" />
-        </div>
+    <div class="hero glass">
+      <h1>{{ t('hero.title') }}</h1>
+      <TyperUtil :words="config.typer" />
+      <h3>{{ t('hero.text') }}</h3>
+      <div class="hero__buttons">
+        <Button
+          :text="t('hero.mail')"
+          :text-bold="true"
+          text-color="#e9e9e9"
+          borderRadius="0.5rem"
+          :icon="config.icons.email"
+          align="center"
+          color="#b90091"
+          :outline="false"
+          :onClick="() => {}" />
+        <Button
+          :text="t('hero.discord')"
+          :text-bold="false"
+          text-color="#e9e9e9"
+          borderRadius="0.5rem"
+          :icon="config.icons.discord"
+          align="center"
+          color="#b90091"
+          :outline="true"
+          :onClick="() => {}" />
       </div>
-      <div class="hero__right glass">
-        <NuxtImg
-          class="hero__right__image"
-          fit="crop"
-          height="22rem"
-          width="1600"
-          :src="config.images.astronautImg"
-          loading="lazy"
-          decoding="async"
-          placeholder />
+      <div class="hero__links">
+        <p class="text">{{ t('hero.follow') }}:</p>
+        <a v-for="link in config.socialLinks" :key="link.icon" :href="link.url" target="_blank">
+          <Icon :name="link.icon" class="icon" />
+        </a>
       </div>
     </div>
   </div>
@@ -81,102 +53,46 @@ onBeforeMount(async () => {
 
 .wrapper {
   display: flex;
-  flex-direction: column;
-  z-index: 1;
   width: 100%;
-  height: 100vh;
-  align-items: center;
+  height: calc(100vh - 14rem);
+  z-index: 10;
   justify-content: center;
-}
+  align-items: center;
 
-.hero {
-  display: flex;
-  flex-direction: row;
-  width: 70%;
-  height: 50%;
-  justify-content: space-evenly;
-
-  @media screen and (max-width: $screen-lg) {
-    height: 60%;
-    width: 90%;
-  }
-
-  @media screen and (max-width: $screen-md) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  @media screen and (max-width: $screen-sm) {
-    height: 100%;
-    flex-direction: column;
-    justify-content: end;
-    margin-bottom: 2rem;
-  }
-
-  &__left {
+  .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    height: 100%;
-    width: 40%;
-
-    @media screen and (max-width: $screen-md) {
-      width: 80%;
-    }
-
-    @media screen and (max-width: $screen-sm) {
-      width: 100%;
-      height: 35%;
-    }
+    padding: 3rem 5rem;
+    gap: 0.3rem;
 
     &__links {
-      align-items: center;
       display: flex;
-      gap: 0.2rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.4rem;
 
-      &__text {
-        font-size: 1.4rem;
-        font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
-        font-variation-settings:
-          'wght' 470,
-          'ital' 0;
-        margin: 0;
-        color: #ededed;
+      .text {
+        color: #d9d9d9;
+        font-weight: bold !important;
       }
 
-      &__icon {
-        font-size: 1.7rem;
-        color: #ededed;
-      }
-      :hover {
-        color: #9d2dbb;
+      .icon {
+        font-size: 1.5rem;
+        color: #e5e5e5;
+
+        &:hover {
+          color: rgb(0, 255, 178);
+        }
       }
     }
 
     &__buttons {
       display: flex;
       flex-direction: row;
-      gap: 1rem;
-    }
-  }
-
-  &__right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 40%;
-
-    @media screen and (max-width: $screen-sm) {
-      display: none;
-    }
-
-    &__image {
-      width: 80%;
+      align-items: center;
+      padding: 1.3rem 0;
+      gap: 0.5rem;
     }
   }
 }
