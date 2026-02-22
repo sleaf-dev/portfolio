@@ -72,6 +72,14 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
   },
 
+  image: {
+    provider: 'ipx',
+    ipx: {
+      baseURL: '/_ipx',
+    },
+    domains: ['s3.sleaf.dev', 'sleaf.dev', 'localhost'],
+  },
+
   routeRules: {
     '/**': {
       prerender: true,
