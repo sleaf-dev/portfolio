@@ -1,4 +1,4 @@
-FROM node:24-alpine
+FROM node:24
 
 COPY /.output /nuxt/.output
 COPY ./i18n /nuxt/i18n
