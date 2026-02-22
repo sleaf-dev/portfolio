@@ -13,8 +13,8 @@ export default NuxtAuthHandler({
   },
   providers: [
     github({
-      clientId: process.env.GITHUB_ID || useRuntimeConfig().public.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET || useRuntimeConfig().private.GITHUB_SECRET,
+      clientId: process.env.OAUTH_ID || useRuntimeConfig().public.OAUTH_ID,
+      clientSecret: process.env.OAUTH_SECRET || useRuntimeConfig().private.OAUTH_SECRET,
       httpOptions: {
         family: 4,
       },
