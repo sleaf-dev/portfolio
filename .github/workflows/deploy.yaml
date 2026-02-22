@@ -17,7 +17,7 @@ on:
 
 jobs:
   dependencies:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
           path: node_modules
 
   prepare:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: dependencies
     steps:
       - name: Checkout code
@@ -80,7 +80,7 @@ jobs:
           retention-days: 1
 
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: prepare
     env:
       S3_BUCKET: ${{ secrets.S3_BUCKET }}
