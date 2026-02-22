@@ -32,10 +32,10 @@ onUnmounted(() => {
 
 <template>
   <div class="background">
-    <NuxtImg src="/background.webp" class="background__photo" loading="lazy" decoding="async" />
+    <NuxtImg src="/media/background.webp" class="background__photo" loading="lazy" decoding="async" />
     <video class="background__video" preload="auto" autoplay loop muted playsinline>
-      <source src="/background.webm" type="video/webm" />
-      <source src="/background.mp4" type="video/mp4" />
+      <source src="/media/background.webm" type="video/webm" />
+      <source src="/media/background.mp4" type="video/mp4" />
     </video>
     <div class="overlap" />
   </div>

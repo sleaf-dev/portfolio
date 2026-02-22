@@ -20,7 +20,7 @@
 
 .grain:after {
   animation: grain 8s steps(10) infinite;
-  background-image: url('/noise.svg');
+  background-image: url('/svg/noise.svg');
   content: '';
   height: 300%;
   width: 300%;

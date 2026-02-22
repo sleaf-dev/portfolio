@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const config = useAppConfig();
 const runtimeConfig = useRuntimeConfig();
 const { t, locale } = useI18n();
 

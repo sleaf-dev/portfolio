@@ -33,8 +33,8 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
-        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/webp', href: '/favicons/favicon.webp' },
+        { rel: 'icon', type: 'image/png', href: '/favicons/favicon.png' },
       ],
     },
   },

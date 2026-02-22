@@ -37,7 +37,7 @@ const getUserClass = computed(() => {
     <div class="navigation-body">
       <div class="logo">
         <NuxtLink to="/" class="logo__link">
-          <img class="logo__link__svg" src="/logo.svg" loading="lazy" decoding="async" />
+          <img class="logo__link__svg" src="/svg/logo.svg" loading="lazy" decoding="async" />
         </NuxtLink>
       </div>
       <div class="buttons glass">
