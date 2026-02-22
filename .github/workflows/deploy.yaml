@@ -39,37 +39,17 @@ jobs:
           npm install -g pnpm
           npm install -g nuxi
           pnpm i --dangerously-allow-all-builds
+          pnpm run postinstall
+
+      - name: Prepare for build
+        run: |
+          pnpm run postinstall
 
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
           key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
           path: node_modules
-
-  prepare:
-    runs-on: [self-hosted]
-    needs: dependencies
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Restore cache
-        uses: actions/cache@v4
-        with:
-          key: node_modules-${{ hashFiles('pnpm-lock.yaml') }}
-          path: node_modules
-          restore-keys: node_modules-
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "25"
-
-      - name: Prepare for build
-        run: |
-          npm install -g pnpm
-          npm install -g nuxi
-          pnpm run postinstall
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -81,7 +61,7 @@ jobs:
 
   build:
     runs-on: [self-hosted]
-    needs: prepare
+    needs: dependencies
     env:
       S3_BUCKET: ${{ secrets.S3_BUCKET }}
       S3_URL: ${{ secrets.S3_URL }}
