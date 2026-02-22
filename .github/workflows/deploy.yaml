@@ -39,6 +39,7 @@ jobs:
           npm install -g pnpm
           npm install -g nuxi
           pnpm i
+          pnpm approve-builds
 
       - name: Cache node_modules
         uses: actions/cache@v4
