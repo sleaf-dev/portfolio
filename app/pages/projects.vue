@@ -42,7 +42,7 @@ const projectRows = computed(() => {
     <div class="projects">
       <div v-for="(row, rowIndex) in projectRows" :key="'row-' + rowIndex" class="row">
         <div v-for="(item, colIndex) in row" :key="'project-' + rowIndex + '-' + colIndex" class="item glass" :style="{ width: item.width }">
-          <ProjectCard :project="item.project" :width="item.width" />
+          <ProjectCard :project="item.project" />
         </div>
       </div>
     </div>
@@ -82,7 +82,6 @@ const projectRows = computed(() => {
       overflow: hidden;
       position: relative;
       border-radius: 2rem;
-
       transition: all 0.3s ease;
     }
   }

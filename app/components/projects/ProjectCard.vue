@@ -7,13 +7,11 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  width: {
-    type: String,
-    default: '50%',
-  },
 });
 
-const imageUrl = `${runtimeConfig.public.S3_URL}/${runtimeConfig.public.S3_BUCKET}/projects/images/${props.project.image}`;
+const s3Url = `${runtimeConfig.public.S3_URL}/${runtimeConfig.public.S3_BUCKET}/projects`;
+const iconUrl = `${s3Url}/icons/${props.project.icon}`;
+const imageUrl = `${s3Url}/images/${props.project.image}`;
 const description = props.project.description[locale.value] || props.project.description['ru'];
 </script>
 
@@ -22,11 +20,13 @@ const description = props.project.description[locale.value] || props.project.des
     <div class="image">
       <NuxtImg class="image__img" fit="crop" height="22rem" width="1600" :src="imageUrl" loading="lazy" decoding="async" />
     </div>
-    <div :class="`info ${width === '30%' ? 'info__small' : 'info__big'}`">
-      <h4>{{ project.name }}</h4>
+    <NuxtLink class="info" :to="project.url" target="_blank">
+      <h4 class="info__title">
+        <NuxtImg class="info__icon" :src="iconUrl" loading="lazy" decoding="async" />
+        {{ project.name }}
+      </h4>
       <p class="info__description">{{ description }}</p>
-    </div>
-    <NuxtLink :to="project.url" class="active"></NuxtLink>
+    </NuxtLink>
   </div>
 </template>
 
@@ -52,37 +52,42 @@ const description = props.project.description[locale.value] || props.project.des
   align-items: center;
 }
 
-.active {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  align-items: center;
-  padding: 1rem;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  filter: none !important;
-  -webkit-filter: none !important;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 3px solid rgba(44, 32, 68, 0.073);
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-}
-:hover {
-  opacity: 100;
-}
-
 .info {
   display: flex;
   flex-direction: column;
   position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  text-decoration: none;
+  bottom: 0;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
+  gap: 1rem;
+
+  &:hover {
+    transition: all 1s ease;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  &__icon {
+    display: flex;
+    width: 2rem;
+  }
 
   &__description {
+    max-width: 80%;
     text-align: center;
     font-size: 1.4rem;
     font-family: 'Mori-SemiBold', 'Helvetica', 'Arial', sans-serif;
@@ -90,31 +95,6 @@ const description = props.project.description[locale.value] || props.project.des
       'wght' 470,
       'ital' 0;
     color: #e3e3e3;
-  }
-
-  &__big {
-    width: 18rem;
-    height: 22rem;
-    filter: none !important;
-    -webkit-filter: none !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 3px solid rgba(44, 32, 68, 0.073);
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-  }
-
-  &__small {
-    width: 92%;
-    height: 7rem;
-    bottom: 0;
-    filter: none !important;
-    -webkit-filter: none !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 3px solid rgba(44, 32, 68, 0.073);
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
   }
 }
 </style>
