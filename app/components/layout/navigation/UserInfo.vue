@@ -27,6 +27,7 @@ onClickOutside(userMenuRef, () => {
     :text="t('buttons.login_through')"
     text-color="#e9e9e9"
     borderRadius="0.5rem"
+    :isGlass="true"
     :iconLeft="false"
     :icon="config.icons.github"
     color="transparent"
@@ -45,6 +46,12 @@ onClickOutside(userMenuRef, () => {
 
 .login {
   width: 100%;
+  transition: all 1s ease;
+  opacity: 0;
+}
+:hover {
+  transition: all 1s ease;
+  opacity: 100;
 }
 
 .user-info {

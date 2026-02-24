@@ -3,7 +3,6 @@ import NavItems from './NavItems.vue';
 import UserInfo from './UserInfo.vue';
 
 const config = useAppConfig();
-const { status } = useAuth();
 const links = computed((): any => {
   return [
     {
@@ -26,10 +25,6 @@ const links = computed((): any => {
     },
   ];
 });
-
-const getUserClass = computed(() => {
-  return status.value === 'authenticated' ? '' : 'glass';
-});
 </script>
 
 <template>
@@ -43,7 +38,7 @@ const getUserClass = computed(() => {
       <div class="buttons glass">
         <NavItems :links="links" />
       </div>
-      <div :class="`user ${getUserClass}`">
+      <div class="user">
         <UserInfo />
       </div>
     </div>
@@ -55,6 +50,8 @@ const getUserClass = computed(() => {
 
 nav {
   display: flex;
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 7rem;
   z-index: 100;

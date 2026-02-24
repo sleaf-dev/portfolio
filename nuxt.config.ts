@@ -104,5 +104,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/fonts', '@nuxtjs/i18n', '@sidebase/nuxt-auth'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@nuxt/fonts',
+    '@nuxtjs/i18n',
+    '@sidebase/nuxt-auth',
+    '@nuxtjs/device',
+  ],
 });

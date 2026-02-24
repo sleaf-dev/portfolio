@@ -1,13 +1,13 @@
 import { NuxtAuthHandler } from '#auth';
 import GithubProvider from 'next-auth/providers/github';
 import { MongoDBAdapter } from '@auth/mongodb-adapter';
-import client from '~~/server/plugins/db';
+import { getMongoClient } from '~~/server/utils/authMongoClient';
 
 const github = (GithubProvider as any).default || GithubProvider;
 
 export default NuxtAuthHandler({
   // @ts-expect-error
-  adapter: MongoDBAdapter(client),
+  adapter: MongoDBAdapter(getMongoClient()),
   session: {
     strategy: 'jwt',
   },

@@ -62,6 +62,7 @@ const description = props.project.description[locale.value] || props.project.des
   -webkit-filter: none !important;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  transition: all 1s ease;
   text-decoration: none;
   bottom: 0;
   align-items: center;

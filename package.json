@@ -16,15 +16,16 @@
     "@nuxt/fonts": "0.14.0",
     "@nuxt/icon": "2.2.1",
     "@nuxt/image": "2.0.0",
+    "@nuxtjs/device": "4.0.0",
     "@nuxtjs/i18n": "10.2.3",
     "@sidebase/nuxt-auth": "1.2.0",
     "@vueuse/core": "^14.2.1",
     "minio": "^8.0.6",
     "mongodb": "^7.1.0",
-    "mongoose": "^9.2.1",
+    "mongoose": "^9.2.2",
     "next-auth": "4.21.1",
     "nuxt": "^4.3.1",
-    "vue": "^3.5.28",
+    "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },
   "devDependencies": {

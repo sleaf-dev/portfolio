@@ -55,6 +55,10 @@ const props = defineProps({
     type: Function as PropType<(payload: MouseEvent) => void>,
     default: () => {},
   },
+  isGlass: {
+    type: Boolean,
+    default: false,
+  },
   outline: {
     type: Boolean,
     default: false,
@@ -102,7 +106,7 @@ const boxShadowColor = computed(() => {
 <template>
   <div
     @click="props.onClick"
-    :class="props.transparent ? 'transparent__glass' : 'button'"
+    :class="`${props.transparent ? ' ' : 'button'} ${props.isGlass ? 'glass' : ''}`"
     :style="
       props.transparent
         ? ''
@@ -141,45 +145,58 @@ const boxShadowColor = computed(() => {
     box-shadow 0.3s;
   position: relative;
   overflow: hidden;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(0.95);
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.96);
+
+    &::after {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+      transition: 0s;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 300%;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(17, 17, 17, 0.15);
+    transition:
+      transform 0.4s,
+      opacity 0.8s;
+    opacity: 0;
+  }
 }
 
-.dark .button {
-  filter: brightness(30%);
+.glass {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid rgba(44, 32, 68, 0.073) !important;
+  border-radius: 2rem !important;
+  transition: all 1s ease;
+
+  &:hover {
+    backdrop-filter: blur(80px) !important;
+    -webkit-backdrop-filter: blur(80px) !important;
+    transition: all 1s ease;
+    cursor: pointer;
+  }
 }
 
-.button:hover {
-  opacity: 0.9;
-  transform: scale(0.95);
-  cursor: pointer;
-}
-
-.button:active {
-  transform: scale(0.96);
-}
-
-.button::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  height: 300%;
-  left: 50%;
-  top: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0);
-  background: rgba(17, 17, 17, 0.15);
-  transition:
-    transform 0.4s,
-    opacity 0.8s;
-  opacity: 0;
-}
-.button:active::after {
-  transform: translate(-50%, -50%) scale(1.2);
-  opacity: 1;
-  transition: 0s;
-}
-
-.transparent__glass {
+.transparent {
   align-items: center;
   display: flex;
   gap: 0.5rem;
@@ -190,14 +207,14 @@ const boxShadowColor = computed(() => {
     background-color 0.3s,
     transform 0.2s,
     color 0.3s;
-}
 
-.transparent__glass:hover {
-  opacity: 0.7;
-  transform: scale(0.85);
-}
+  &:hover {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
 
-.transparent__glass:active {
-  transform: scale(0.95);
+  &:active {
+    transform: scale(0.95);
+  }
 }
 </style>

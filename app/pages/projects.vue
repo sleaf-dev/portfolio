@@ -10,6 +10,12 @@ const { data: projects } = await useFetch<any[]>('/api/v1/projects/get', {
   default: () => [],
 });
 
+onBeforeMount(() => {
+  if (process.client && window) {
+    window.history.scrollRestoration = 'auto';
+  }
+});
+
 const templateCycle = [
   ['70%', '30%'],
   ['50%', '50%'],
@@ -82,7 +88,7 @@ const projectRows = computed(() => {
       overflow: hidden;
       position: relative;
       border-radius: 2rem;
-      transition: all 0.3s ease;
+      transition: all 1s ease;
     }
   }
 }

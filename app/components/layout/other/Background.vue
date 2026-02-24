@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { isDesktop } = useDevice();
+
 let ticking = false;
 
 const handleScroll = async () => {
@@ -33,7 +35,7 @@ onUnmounted(() => {
 <template>
   <div class="background">
     <NuxtImg src="/media/background.webp" class="background__photo" loading="lazy" decoding="async" />
-    <video class="background__video" preload="auto" autoplay loop muted playsinline>
+    <video v-if="isDesktop" class="background__video" preload="auto" autoplay loop muted playsinline>
       <source src="/media/background.webm" type="video/webm" />
       <source src="/media/background.mp4" type="video/mp4" />
     </video>
