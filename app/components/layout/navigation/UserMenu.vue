@@ -20,7 +20,7 @@ onClickOutside(userMenuRef, () => {
       <Icon v-else :name="config.icons.avatar" class="user-info__manage__image" />
     </div>
     <Transition name="dropdown">
-      <div v-show="isUserMenuOpened" class="dropdown-menu glass dropdown-menu--user">
+      <div v-show="isUserMenuOpened" class="dropdown-menu glass dropdown-menu__user">
         <div class="dropdown-menu__user-header">
           <NuxtImg v-if="data?.user?.image" :src="data?.user?.image || ''" class="user-avatar" />
           <Icon v-else :name="config.icons.avatar" class="user-avatar" />
@@ -91,13 +91,13 @@ onClickOutside(userMenuRef, () => {
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  border-radius: 0.75rem;
+  border-radius: 2rem;
   min-width: 280px;
   box-shadow: 0 10px 40px rgba(54, 54, 54, 0.5);
   z-index: 1000;
   overflow: hidden;
 
-  &--user {
+  &__user {
     right: -1rem;
   }
 
